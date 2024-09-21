@@ -1,0 +1,28 @@
+// https://leetcode.com/problems/single-number/submissions/1293636271/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int rst  = 0;
+        int temp = nums[0];
+        int count = 1;
+        if(nums.length == 1){
+            return nums[0];
+        }
+        for (int i=1;i<nums.length;i++){
+            if(temp == nums[i]){
+                count = 2;
+                temp = nums[i];
+            }
+            if(temp != nums[i] && count == 2){
+                count = 1;
+                temp = nums[i];
+                rst = temp;
+            }
+            if(count ==1 && temp != nums[i]){
+                rst = temp;
+            }
+        }
+       return rst; 
+    }
+}
