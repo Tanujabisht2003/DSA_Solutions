@@ -1,0 +1,22 @@
+<!-- https://leetcode.com/problems/move-zeroes/submissions/1293662493/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=EASY -->
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        ArrayList<Integer> a1 = new ArrayList<Integer>();
+        ArrayList<Integer> a2 = new ArrayList<Integer>();
+         ArrayList<Integer> a = new ArrayList<Integer>();
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!= 0){
+                a1.add(nums[i]);
+            }else{
+                a2.add(nums[i]);
+            }
+        }
+        a.addAll(a1);
+        a.addAll(a2);
+
+        for(int j=0;j<a.size();j++){
+            nums[j] = a.get(j);
+        }
+    }
+}
