@@ -1,0 +1,48 @@
+<!-- https://leetcode.com/problems/next-permutation/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int pivot = -1;
+        int pit = 0;
+        int Min = 0;
+        int m  = 0;
+        int index_m = 0;
+        for(int i = nums.length-1;i>0;i--){
+            if(nums[i] > nums[i-1]){
+                pivot = i-1;
+                pit = pivot;
+                Min = nums[pivot];
+                m = nums[pivot+1];
+                index_m  = pivot+1;
+                break;
+            }
+            if(nums[i] < nums[i-1]){
+                if(i-1 == 0){
+                    Arrays.sort(nums);
+                    return;
+                }
+            } 
+        } 
+        for(int j = pit+1;j<nums.length;j++){
+            if(m >= nums[j]){
+                if(nums[j] > Min){
+                    m = nums[j];
+                    index_m = j;
+                } 
+            }
+        }
+        int temp = nums[index_m];
+        nums[index_m] = nums[pit];
+        nums[pit] = temp;
+
+        int k = pit+1;
+        int z = nums.length-1;
+        while(k<z){
+            int temp2 = nums[z];
+            nums[z] = nums[k];
+            nums[k] = temp2;
+            k++;
+            z--;
+        }
+    }
+}
