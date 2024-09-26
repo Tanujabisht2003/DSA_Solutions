@@ -1,0 +1,27 @@
+<!-- https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int length = 0;
+        int first = 0;
+        int[] arr = new int[2];
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] == target){
+                length++;
+                first = i;
+            }
+            arr[0] =  first + 1 -length ;
+            arr[1] = first;
+        }
+        if(length  == 0){
+            arr[0] = -1 ;
+            arr[1] = -1 ;
+        }
+        if(length  == 1){
+            arr[0] = first ;
+            arr[1] = first ;
+        }
+
+        return arr;
+    }
+}

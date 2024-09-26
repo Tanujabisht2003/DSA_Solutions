@@ -1,0 +1,20 @@
+<!-- https://leetcode.com/problems/rotate-image/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public void rotate(int[][] matrix) {
+        ArrayList<Integer> ar = new ArrayList<>();
+        for(int i=0;i<matrix.length;i++){
+            for(int j = 0;j<matrix.length;j++){
+                ar.add(matrix[i][j]);
+            }
+        }
+        int x = 0;
+        Collections.reverse(ar);
+        for(int m = 0;m<matrix.length;m++){
+            for(int k = matrix.length-1;k >=0;k--){
+                matrix[k][m] = ar.get(x);
+                x++;
+            }
+        }
+    }
+}
