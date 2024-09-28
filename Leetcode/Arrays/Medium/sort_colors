@@ -1,0 +1,8 @@
+<!-- https://leetcode.com/problems/sort-colors/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public void sortColors(int[] nums) {
+        Arrays.sort(nums);
+        
+    }
+}
