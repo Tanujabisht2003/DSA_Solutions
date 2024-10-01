@@ -1,0 +1,28 @@
+<!-- https://leetcode.com/problems/majority-element-ii/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        Arrays.sort(nums);
+        int length = 1;
+        if(nums.length == 1){
+            al.add(nums[0]);
+            return al;
+        }
+        for(int i=0;i<nums.length-1;i++){
+            if(nums[i] == nums[i+1]){
+                length++;
+            }
+            if(nums[i] != nums[i+1]){
+                if(length > nums.length/3){
+                    al.add(nums[i]);
+                }
+                length = 1;
+            }
+        }
+        if (length > nums.length / 3) {
+            al.add(nums[nums.length - 1]);
+        }
+        return al;
+    }
+}
