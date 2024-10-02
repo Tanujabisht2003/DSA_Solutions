@@ -1,0 +1,18 @@
+<!-- https://leetcode.com/problems/subarray-sum-equals-k/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int length = 0;
+
+        for(int j=0;j<nums.length;j++){
+            int sum = 0;
+            for(int m=j;m<nums.length;m++){
+                sum += nums[m];
+                if(sum == k){
+                    length++;
+                }
+            }
+        }
+        return length;
+    }
+}
