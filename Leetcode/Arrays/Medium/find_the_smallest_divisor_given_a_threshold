@@ -1,0 +1,29 @@
+<!-- https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int smallestDivisor(int[] nums, int threshold) {
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        int m = 0;
+        int divisor = 1;
+        int sum = 0;
+        int k=1;
+        for(int i=0;i<nums.length;i++){
+            m = Math.max(nums[i] , m);
+        }
+        while(k<=m){
+            int mid = k+(m-k) / 2;
+            for(int i=0;i<nums.length;i++){
+                sum += (int) Math.ceil((double)nums[i]/mid);
+            }
+            if(sum <= threshold){
+                divisor = mid;
+                m = mid - 1;
+            }
+            if(sum > threshold){
+                k = mid + 1;
+            }
+            sum = 0;
+        }
+        return divisor;
+    }
+}

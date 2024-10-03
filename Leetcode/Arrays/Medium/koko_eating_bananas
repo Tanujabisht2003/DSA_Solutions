@@ -1,0 +1,28 @@
+<!-- https://leetcode.com/problems/koko-eating-bananas/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+        Arrays.sort(piles);
+        if (piles.length == h) {
+            return piles[piles.length - 1];
+        }
+        int k = 0;
+        int i = 1;
+        int j = piles[piles.length - 1];
+        while (i <= j) {
+            int hrs = 0;
+            int mid = (i + j) / 2;
+            for (int num :  piles) {
+                hrs += Math.ceil((double)num / mid);
+            }
+            if (hrs > h) {
+                i = mid + 1;
+            }
+            if (hrs <= h) {
+                j = mid - 1;
+                k = mid;
+            }
+        }
+        return k;
+    }
+}
