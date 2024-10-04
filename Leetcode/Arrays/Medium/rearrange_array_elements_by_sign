@@ -1,0 +1,31 @@
+<!-- https://leetcode.com/problems/rearrange-array-elements-by-sign/description/?envType=problem-list-v2&envId=array&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int[] arr = new int[nums.length/2];
+        int[] arr1 = new int[nums.length/2];
+        int t = 0;
+        int p = 0;
+        int t1 = 0;
+        int p1 = 0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] > 0 ){
+                arr[t] = nums[i];
+                t++;
+            }else{
+                arr1[p] = nums[i];
+                p++;
+            }
+        }
+        for(int k=0;k<nums.length;k++){
+            if(k%2 == 0){
+                nums[k] = arr[t1];
+                t1++;
+            }else{
+                nums[k] = arr1[p1];
+                p1++;
+            } 
+        }
+        return nums;
+    }
+}
