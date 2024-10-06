@@ -1,0 +1,21 @@
+// https://leetcode.com/problems/valid-palindrome/submissions/?envType=problem-list-v2&envId=string&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        String st = s.replaceAll("[^a-zA-Z0-9]", "");
+        String S = st.toLowerCase();
+        int i = 0;
+        int j = S.length()-1;
+        if(S == ""){
+            return true;
+        }
+        while(i<j){
+            if(S.charAt(i) != S.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}

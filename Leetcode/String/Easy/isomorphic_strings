@@ -1,0 +1,28 @@
+<!-- https://leetcode.com/problems/isomorphic-strings/description/?envType=problem-list-v2&envId=string&status=SOLVED&difficulty=EASY -->
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
+        }
+        HashMap<Character, Character> s1 = new HashMap<Character, Character>();
+        HashMap<Character, Character> t1 = new HashMap<Character, Character>();
+        for(int i=0;i<s.length();i++){
+            char sh = s.charAt(i);
+            char th = t.charAt(i);
+            if (s1.containsKey(sh)) {
+                if(th != s1.get(sh)){
+                    return false;
+                }
+            }
+            if(t1.containsKey(th)){
+                if(sh != t1.get(th)){
+                    return false;
+                }
+            }
+            s1.put(sh,th);
+            t1.put(th,sh);
+        }
+        return true;
+    }
+}
