@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/reverse-string/submissions/958330569/?envType=problem-list-v2&envId=string&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public void reverseString(char[] s) {
+        int i = 0;
+        char temp ;
+        int j = s.length -1;
+           while(i<=j){
+                temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+                i++;
+                j--;
+           }
+           
+
+
+    }
+}
