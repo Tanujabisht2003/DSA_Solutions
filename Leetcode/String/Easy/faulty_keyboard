@@ -1,0 +1,24 @@
+<!-- https://leetcode.com/problems/faulty-keyboard/description/?envType=problem-list-v2&envId=string&status=SOLVED&difficulty=EASY -->
+
+class Solution {
+    public String finalString(String s) {
+        int count =0;
+       ArrayList<Character> c = new ArrayList<>(); 
+        for(int i =0;i<s.length();i++){
+            if(s.charAt(i) != 'i'){
+                char ch = s.charAt(i);
+                c.add(ch);
+                count++;
+            }else{
+                Collections.reverse(c);
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (char by :c) {
+            sb.append(by);
+        }
+
+        String result = sb.toString();
+        return result;  
+    }
+}
