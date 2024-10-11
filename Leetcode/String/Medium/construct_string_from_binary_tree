@@ -1,0 +1,42 @@
+<!-- https://leetcode.com/problems/construct-string-from-binary-tree/description/?envType=problem-list-v2&envId=string&status=SOLVED&difficulty=MEDIUM -->
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public String tree2str(TreeNode root) {
+
+        String s = "";
+        if(root == null){
+            return s;
+        }
+        s += root.val;
+        if (root.left != null){
+          s += "(";
+          s += tree2str(root.left);
+          s += ")";
+         }
+         if (root.left == null && root.right != null){
+           s += "()";
+         }
+        if (root.right != null){
+          s += "(";
+          s += tree2str(root.right);
+          s += ")"; 
+        }
+        
+        return s;
+    }
+}

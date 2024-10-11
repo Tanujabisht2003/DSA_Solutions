@@ -1,0 +1,15 @@
+<!-- https://leetcode.com/problems/reverse-words-in-a-string/description/?envType=problem-list-v2&envId=string&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public String reverseWords(String s) {
+        String op = s.trim();
+        String st = op.replaceAll("\\s+"," ");
+        String ar[] = st.split(" ");
+        ArrayList<String> strList = new ArrayList<String>(Arrays.asList(ar));
+        Collections.reverse(strList);
+        String arr[]=strList.toArray(new String[strList.size()]);
+        String result = String.join(" ", arr);
+
+        return result;
+    }
+}
