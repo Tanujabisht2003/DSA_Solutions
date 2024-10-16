@@ -1,0 +1,54 @@
+<!-- https://leetcode.com/problems/two-sum-iv-input-is-a-bst/description/?envType=problem-list-v2&envId=hash-table&status=SOLVED&difficulty=EASY -->
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        if(root == null){
+            return false;
+        }
+        ArrayList<TreeNode> arr1 = new ArrayList();
+        ArrayList<Integer> output = new ArrayList();
+        arr1.add(root);
+        while(!arr1.isEmpty()){
+            ArrayList<TreeNode> arr2 = new ArrayList();
+            for(TreeNode i: arr1){
+                output.add(i.val);
+                if(i.left != null){
+                    arr2.add(i.left);
+                }
+                if(i.right != null){
+                    arr2.add(i.right);
+                }
+            }
+            arr1=arr2;
+        }
+        int temp;
+        for(int i=0;i<output.size();i++){
+            temp = k-output.get(i);
+            for(int j=0;j<output.size();j++){
+                if(output.get(j) == output.get(i)){
+                    continue;
+                }
+                if(output.get(j) == temp){
+                    temp= temp-output.get(j);
+                    return true;
+                }
+            } 
+        }
+        return false;
+    }
+}
