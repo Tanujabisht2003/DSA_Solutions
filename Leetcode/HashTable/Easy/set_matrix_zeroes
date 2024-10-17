@@ -1,0 +1,27 @@
+// https://leetcode.com/problems/set-matrix-zeroes/submissions/1371941539/?envType=problem-list-v2&envId=hash-table&status=SOLVED&difficulty=MEDIUM
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        HashSet<Integer> hr = new HashSet<Integer>();
+        HashSet<Integer> hc = new HashSet<Integer>();
+        for(int i=0;i<matrix.length;i++){
+            for(int j = 0;j<matrix[i].length;j++){
+                if(matrix[i][j] == 0){
+                    hr.add(i);
+                    hc.add(j);
+                }
+            }
+        }
+
+        for(Integer x: hr){
+            for(int z = 0; z < matrix[x].length; z++){
+                matrix[x][z] = 0;
+            }
+        }
+        for(Integer y: hc){
+            for(int t = 0; t < matrix.length; t++){
+                matrix[t][y] = 0;
+            }
+        }
+    }
+}
