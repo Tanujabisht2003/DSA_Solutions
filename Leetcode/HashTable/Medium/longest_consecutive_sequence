@@ -1,0 +1,23 @@
+<!-- https://leetcode.com/problems/longest-consecutive-sequence/description/?envType=problem-list-v2&envId=hash-table&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        int length = 1;
+        int max_length = 0;
+        Arrays.sort(nums);
+        if (nums.length == 1 || nums.length == 0){
+            return nums.length;
+        }
+        for(int i=0;i<nums.length-1;i++){
+            if(nums[i+1]-nums[i] == 1){
+                length++;
+                max_length = Math.max(max_length,length);
+            }
+            if(nums[i+1]-nums[i] > 1){
+                length = 1;
+            }
+        }
+        max_length = Math.max(max_length,length);
+        return max_length;
+    }
+}
