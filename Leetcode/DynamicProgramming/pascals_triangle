@@ -1,0 +1,30 @@
+// https://leetcode.com/problems/pascals-triangle/submissions/1376449295/?envType=problem-list-v2&envId=dynamic-programming&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> ar = new ArrayList<>();
+        int i = 1;
+        while (i <= numRows) {
+            if (i == 1 || i == 2) {
+                List<Integer> ar1 = new ArrayList<>();
+                for (int j = 1; j <= i; j++) {
+                    ar1.add(1);
+                }
+                ar.add(ar1);
+            }
+            if (i > 2) {
+                List<Integer> ar2 = new ArrayList<>();
+                ar2.add(1);
+                for (int k = 0; k < ar.get(i-2).size()-1; k++) {
+                    int sum = ar.get(i-2).get(k) + ar.get(i-2).get(k+1);
+                    ar2.add(sum);
+                    sum = 0;
+                }
+                ar2.add(1);
+                ar.add(ar2);
+            }
+            i++;
+        }
+        return ar;
+    }
+}
