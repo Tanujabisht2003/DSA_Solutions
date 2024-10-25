@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/fibonacci-number/submissions/1365555007/?envType=problem-list-v2&envId=dynamic-programming&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public int fib(int n) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        if(n == 0){
+            return 0;
+        }
+        arr.add(1);
+        arr.add(1);
+
+        int i = 2;
+        while(i<=n){
+            arr.add(arr.get(i-1)+arr.get(i-2));
+            i++;
+        }
+        return arr.get(n-1);
+    }
+}
