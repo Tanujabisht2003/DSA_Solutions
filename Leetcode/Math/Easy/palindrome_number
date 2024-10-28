@@ -1,0 +1,13 @@
+// https://leetcode.com/problems/palindrome-number/submissions/1363318483/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        char[] arr = String.valueOf(x).toCharArray();
+        char[] arr1 = new char[arr.length];
+        for(int i=0;i<arr.length;i++){
+            arr1[arr.length-1-i] = arr[i];
+        } 
+        boolean result = Arrays.equals(arr, arr1);
+        return result;
+    }
+}
