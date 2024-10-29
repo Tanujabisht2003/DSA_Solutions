@@ -1,0 +1,15 @@
+// https://leetcode.com/problems/power-of-two/submissions/1403745365/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=EASY
+
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        for(int i=0;i<=n/2;i++){
+            if(Math.pow(2,i) == n){
+                return true;
+            }
+            if(Math.pow(2,i) > n){
+                break;
+            }
+        }
+        return false;
+    }
+}
