@@ -1,0 +1,15 @@
+<!-- https://leetcode.com/problems/largest-odd-number-in-string/description/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=EASY -->
+
+class Solution {
+    public String largestOddNumber(String num) {
+        if (num.charAt(num.length() - 1) % 2 != 0) {
+            return num;
+        }
+        for (int j = num.length() - 1; j >= 0; j--) {
+            if (num.charAt(j) % 2 != 0) {
+                return num.substring(0, j+1);
+            }
+        }
+        return "";
+    }
+}
