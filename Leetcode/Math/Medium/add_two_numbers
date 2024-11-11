@@ -1,0 +1,52 @@
+<!-- https://leetcode.com/problems/add-two-numbers/description/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=MEDIUM -->
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+import java.math.BigInteger;
+
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        StringBuilder s = new StringBuilder();
+        StringBuilder s1 = new StringBuilder();
+        ListNode temp = l1;
+        ListNode temp1 = l2;
+        while (temp != null) {
+            s.append(temp.val);
+            temp = temp.next;
+        }
+        while (temp1 != null) {
+            s1.append(temp1.val);
+            temp1 = temp1.next;
+        }
+        s.reverse();
+        s1.reverse();
+
+        BigInteger bigNum = new BigInteger(s.toString());
+        BigInteger bigNum1 = new BigInteger(s1.toString());
+        bigNum = bigNum.add(bigNum1);
+        String s2 = bigNum.toString();
+
+        ListNode head = null;
+        ListNode curr = head;
+        for (int i = s2.length() - 1; i >= 0; i--) {
+            ListNode newNode = new ListNode(Character.getNumericValue(s2.charAt(i)));
+            if (head == null) {
+                head = newNode;
+                curr = newNode;
+            } else {
+                curr.next = newNode;
+                curr = newNode;
+            }
+        }
+        return head;
+    }
+}
