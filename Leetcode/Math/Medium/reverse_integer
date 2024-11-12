@@ -1,0 +1,28 @@
+// https://leetcode.com/problems/reverse-integer/description/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=MEDIUM
+
+class Solution {
+    public int reverse(int x) {
+        if(x == 0){
+            return 0;
+        }
+        char[] arr = String.valueOf(x).toCharArray();
+        char[] arr1 = new char[arr.length];
+        if(x > 0){
+            for(int i=0;i<arr.length;i++){
+                arr1[arr.length-1-i] = arr[i];
+            } 
+        }
+        if(x < 0){
+            arr1[0] = arr[0];
+            for(int i=1;i<arr.length;i++){
+                arr1[arr.length-i] = arr[i];
+            } 
+        }
+        String str = new String(arr1);
+        long num = Long.parseLong(str);
+        if(num >= -2147483648.0 && num <=2147483648.0-1){
+            return (int)num;
+        }
+        return 0;
+    }
+}
