@@ -1,0 +1,17 @@
+<!-- https://leetcode.com/problems/divide-two-integers/description/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public int divide(int dividend, int divisor) {
+        if(dividend == Integer.MIN_VALUE && divisor == -1){
+            return Integer.MAX_VALUE;
+        }
+        int c = dividend / divisor;
+        if (c > Integer.MAX_VALUE){
+            return Integer.MAX_VALUE;
+        }
+        if (c < Integer.MIN_VALUE){
+            return Integer.MIN_VALUE;
+        }
+        return (int)c;
+    }
+}
