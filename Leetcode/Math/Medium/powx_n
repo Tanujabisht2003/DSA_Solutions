@@ -1,0 +1,7 @@
+<!-- https://leetcode.com/problems/powx-n/description/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public double myPow(double x, int n) {
+        return Math.pow(x,n); 
+    }
+}
