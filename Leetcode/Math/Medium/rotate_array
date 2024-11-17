@@ -1,0 +1,50 @@
+<!-- https://leetcode.com/problems/rotate-array/description/?envType=problem-list-v2&envId=math&status=SOLVED&difficulty=MEDIUM -->
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+
+        int n = nums.length;
+        if(k>n){
+            int x=0;
+            while(x<k){
+                int temp = nums[n-1];
+            for(int m=n-1;m>0;m--){
+                nums[m] = nums[m-1];
+            }
+            nums[0] = temp;
+            x++;
+            }
+            
+        }
+        if(n!=1 && k<n){
+           
+        int temp1;
+        int temp2;
+        int temp;
+            for(int i=0;i<n/2;i++){
+            temp = nums[i];
+            nums[i] = nums[n-1-i];
+            nums[n-1-i] = temp;
+            }
+        int start = 0;
+        int end = k-1;
+        while(start<end){
+            temp1 = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp1;
+            start++;
+            end--;
+        }
+        int start1 = k;
+        int end1 = n-1;
+        while(start1<end1){
+            temp2 = nums[start1];
+            nums[start1] = nums[end1];
+            nums[end1] = temp2;
+            start1++;
+            end1--;
+        }
+        }
+        
+    }
+}
