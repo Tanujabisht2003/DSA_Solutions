@@ -1,0 +1,17 @@
+<!-- https://leetcode.com/problems/valid-anagram/description/?envType=problem-list-v2&envId=sorting&status=SOLVED&difficulty=EASY -->
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        char[] arr = s.toCharArray();
+        char[] arr1 = t.toCharArray();
+        Arrays.sort(arr);
+        Arrays.sort(arr1);
+        String s1 = String.copyValueOf(arr);
+        String t1 = String.copyValueOf(arr1);
+
+        if(s1.equals(t1)){
+            return true;
+        }
+    return false;
+    }
+}
